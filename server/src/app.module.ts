@@ -12,6 +12,8 @@ import { ConfigModule, ConfigService } from "@nestjs/config";
 import { GraphQLModule } from "@nestjs/graphql";
 import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
 import { MailerModule } from "@nestjs-modules/mailer";
+
+
 import { ACLModule } from "./auth/acl.module";
 import { AuthModule } from "./auth/auth.module";
 import {AppService} from "./app.service";
@@ -42,21 +44,6 @@ import {AppService} from "./app.service";
     ConfigModule.forRoot({ isGlobal: true }),
     ServeStaticModule.forRootAsync({
       useClass: ServeStaticOptionsService,
-    }),
-    GraphQLModule.forRootAsync<ApolloDriverConfig>({
-      driver: ApolloDriver,
-      useFactory: (configService: ConfigService) => {
-        const playground = configService.get("GRAPHQL_PLAYGROUND");
-        const introspection = configService.get("GRAPHQL_INTROSPECTION");
-        return {
-          autoSchemaFile: "schema.graphql",
-          sortSchema: true,
-          playground,
-          introspection: playground || introspection,
-        };
-      },
-      inject: [ConfigService],
-      imports: [ConfigModule],
     }),
   ],
   providers: [AppService],

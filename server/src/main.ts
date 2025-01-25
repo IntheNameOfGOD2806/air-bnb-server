@@ -6,7 +6,7 @@ import { AppModule } from "./app.module";
 import { connectMicroservices } from "./connectMicroservices";
 
 import {
-  swaggerPath,
+  swaggerPath, 
   swaggerDocumentOptions,
   swaggerSetupOptions,
 } from "./swagger";

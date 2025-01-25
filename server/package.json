@@ -12,7 +12,7 @@
     "db:migrate-up": "prisma migrate deploy",
     "db:clean": "prisma migrate reset",
     "db:init": "run-s \"db:migrate-save -- --name 'initial version'\" db:migrate-up seed",
-    "prisma:generate": "prisma generate",
+    "prisma:generate": "npx prisma generate",
     "docker:dev": "docker-compose -f docker-compose.dev.yml up -d",
     "package:container": "docker build .",
     "compose:up": "docker-compose up -d",
@@ -30,7 +30,8 @@
     "@nestjs/platform-express": "10.2.7",
     "@nestjs/serve-static": "4.0.0",
     "@nestjs/swagger": "7.1.13",
-    "@prisma/client": "^5.4.2",
+    "@prisma/adapter-pg": "^6.2.1",
+    "@prisma/client": "^6.2.1",
     "@types/bcrypt": "5.0.0",
     "bcrypt": "5.1.1",
     "class-transformer": "0.5.1",
@@ -43,6 +44,7 @@
     "passport": "0.6.0",
     "passport-http": "0.3.0",
     "passport-jwt": "4.0.1",
+    "pg": "^8.13.1",
     "reflect-metadata": "0.1.13",
     "ts-node": "10.9.2",
     "type-fest": "2.19.0",
@@ -61,7 +63,7 @@
     "@types/validator": "^13.11.2",
     "jest": "^29.7.0",
     "jest-mock-extended": "^3.0.5",
-    "prisma": "^5.4.2",
+    "prisma": "^6.2.1",
     "supertest": "^6.3.3",
     "ts-jest": "^29.1.1",
     "typescript": "^5.4.3"
@@ -72,6 +74,8 @@
     "moduleNameMapper": {
       "@app/custom-validators": "<rootDir>/src/validators"
     },
-    "modulePathIgnorePatterns": ["<rootDir>/dist/"]
+    "modulePathIgnorePatterns": [
+      "<rootDir>/dist/"
+    ]
   }
 }

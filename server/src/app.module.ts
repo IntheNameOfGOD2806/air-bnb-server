@@ -8,14 +8,30 @@ import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
 import { ServeStaticModule } from "@nestjs/serve-static";
 import { ServeStaticOptionsService } from "./serveStaticOptions.service";
-import { ConfigModule } from "@nestjs/config";
+import { ConfigModule, ConfigService } from "@nestjs/config";
+import { GraphQLModule } from "@nestjs/graphql";
+import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
+import { MailerModule } from "@nestjs-modules/mailer";
+
 
 import { ACLModule } from "./auth/acl.module";
 import { AuthModule } from "./auth/auth.module";
-
+import {AppService} from "./app.service";
 @Module({
   controllers: [],
   imports: [
+    ConfigModule.forRoot({envFilePath: '.env', isGlobal: true }),
+    MailerModule.forRoot({
+      transport: {
+        host: "sandbox.smtp.mailtrap.io",
+        secure: true,
+        auth: {
+          user: "339b87c13ba246",
+          pass: "fd75eb9b27a0de"
+        },
+        port: 2525,
+      },
+    }),
     ACLModule,
     AuthModule,
     UserModule,
@@ -30,6 +46,6 @@ import { AuthModule } from "./auth/auth.module";
       useClass: ServeStaticOptionsService,
     }),
   ],
-  providers: [],
+  providers: [AppService],
 })
 export class AppModule {}

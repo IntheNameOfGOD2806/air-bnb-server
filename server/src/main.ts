@@ -1,11 +1,12 @@
 import { ValidationPipe } from "@nestjs/common";
 import { HttpAdapterHost, NestFactory } from "@nestjs/core";
 import { OpenAPIObject, SwaggerModule } from "@nestjs/swagger";
-import { HttpExceptionFilter } from "./filters/HttpExceptions.filter";
+// import { HttpExceptionFilter } from "./filters/HttpExceptions.filter";
 import { AppModule } from "./app.module";
 import { connectMicroservices } from "./connectMicroservices";
+
 import {
-  swaggerPath,
+  swaggerPath, 
   swaggerDocumentOptions,
   swaggerSetupOptions,
 } from "./swagger";
@@ -43,11 +44,11 @@ async function main() {
   SwaggerModule.setup(swaggerPath, app, document, swaggerSetupOptions);
 
   const { httpAdapter } = app.get(HttpAdapterHost);
-  app.useGlobalFilters(new HttpExceptionFilter(httpAdapter));
+  // app.useGlobalFilters(new HttpExceptionFilter(httpAdapter));
 
   void app.listen(PORT);
 
   return app;
 }
 
-module.exports = main();
+export default main();

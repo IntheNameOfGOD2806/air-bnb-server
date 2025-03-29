@@ -21,6 +21,7 @@ model User {
   updatedAt DateTime   @updatedAt
   username  String     @unique
   wishlists Wishlist[]
+  userImage String?
 }
 
 model Listing {

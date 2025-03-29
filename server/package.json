@@ -2,7 +2,7 @@
   "name": "@airbnb-server/server",
   "private": true,
   "scripts": {
-   
+    "studio": "npx prisma studio",
     "start": "nest start",
     "start:watch": "nest start --watch",
     "start:debug": "nest start --debug --watch",

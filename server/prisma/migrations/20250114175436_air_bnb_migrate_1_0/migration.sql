@@ -9,7 +9,7 @@ CREATE TABLE "User" (
     "roles" JSONB NOT NULL,
     "updatedAt" TIMESTAMP(3) NOT NULL,
     "username" TEXT NOT NULL,
-
+    "userImage" TEXT,
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
 

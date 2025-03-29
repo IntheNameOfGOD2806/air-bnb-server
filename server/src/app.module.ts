@@ -9,11 +9,7 @@ import { SecretsManagerModule } from "./providers/secrets/secretsManager.module"
 import { ServeStaticModule } from "@nestjs/serve-static";
 import { ServeStaticOptionsService } from "./serveStaticOptions.service";
 import { ConfigModule, ConfigService } from "@nestjs/config";
-import { GraphQLModule } from "@nestjs/graphql";
-import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
 import { MailerModule } from "@nestjs-modules/mailer";
-
-
 import { ACLModule } from "./auth/acl.module";
 import { AuthModule } from "./auth/auth.module";
 import {AppService} from "./app.service";

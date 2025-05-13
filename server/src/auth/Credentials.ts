@@ -4,15 +4,15 @@ import { IsOptional, IsString } from "class-validator";
 
 @InputType()
 export class Credentials {
-  //email 
-   
+  //email
+
   @ApiProperty({
     required: true,
     type: String,
   })
   @IsString()
   @Field(() => String, { nullable: false })
-  username!: string;
+  email!: string;
   @ApiProperty({
     required: true,
     type: String,
@@ -44,6 +44,16 @@ export class SignUpCredentials extends Credentials {
   @IsString()
   @Field(() => String, { nullable: false })
   lastName!: string;
+  @ApiProperty({
+    required: true,
+    type: String,
+  })
+  @IsString()
+  @Field(() => String, { nullable: false })
+  username!: string;
+  // @IsString()
+  // @Field(() => String, { nullable: false })
+  // email!: string;
 }
 
 export class SignInCredentials extends Credentials {
@@ -54,4 +64,14 @@ export class SignInCredentials extends Credentials {
   @IsOptional()
   @Field(() => Boolean, { nullable: true })
   rememberMe?: boolean;
+}
+@InputType()
+export class CheckUserValues {
+  @ApiProperty({
+    required: true,
+    type: String,
+  })
+  @IsString()
+  @Field(() => String, { nullable: false })
+  email!: string;
 }

@@ -14,10 +14,12 @@ import { jwtSecretFactory } from "./jwt/jwtSecretFactory";
 import { PasswordService } from "./password.service";
 import { TokenService } from "./token.service";
 import { UserModule } from "../user/user.module";
+import { CloudinaryModule } from "src/cloudinary/cloudinary.module";
 @Module({
   imports: [
     forwardRef(() => UserModule),
     PassportModule,
+    CloudinaryModule,
     SecretsManagerModule,
     JwtModule.registerAsync({
       imports: [SecretsManagerModule],

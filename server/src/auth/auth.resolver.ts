@@ -6,7 +6,6 @@ import { GqlDefaultAuthGuard } from "./gqlDefaultAuth.guard";
 import { UserData } from "./userData.decorator";
 import { LoginArgs } from "./LoginArgs";
 import { UserInfo } from "./UserInfo";
-
 @Resolver(UserInfo)
 export class AuthResolver {
   constructor(private readonly authService: AuthService) {}
@@ -17,7 +16,7 @@ export class AuthResolver {
 
   @Query(() => UserInfo)
   @common.UseGuards(GqlDefaultAuthGuard, gqlACGuard.GqlACGuard)
-  async userInfo(@UserData() entityInfo: UserInfo): Promise<UserInfo> {
-    return entityInfo;
+  async userInfo(@UserData() userInfo: UserInfo): Promise<UserInfo> {
+    return userInfo;
   }
 }

@@ -13,9 +13,12 @@ import { MailerModule } from "@nestjs-modules/mailer";
 import { ACLModule } from "./auth/acl.module";
 import { AuthModule } from "./auth/auth.module";
 import {AppService} from "./app.service";
-@Module({
+import { ChatModule } from './chat/chat.module';
+
+@Module({ 
   controllers: [],
   imports: [
+    ChatModule,
     ConfigModule.forRoot({envFilePath: '.env', isGlobal: true }),
     MailerModule.forRoot({
       transport: {

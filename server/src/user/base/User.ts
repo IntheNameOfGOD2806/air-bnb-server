@@ -91,7 +91,7 @@ class User {
   @ApiProperty({
     required: true,
   })
-  @IsJSONValue()
+  // @IsJSONValue()
   @Field(() => GraphQLJSON)
   roles!: JsonValue;
 

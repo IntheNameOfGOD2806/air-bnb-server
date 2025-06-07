@@ -33,7 +33,7 @@ class TripCreateInput {
   @ApiProperty({
     required: true,
   })
-  @IsJSONValue()
+  //@IsJSONValue()
   @Field(() => GraphQLJSON)
   tripinfo!: InputJsonValue;
 

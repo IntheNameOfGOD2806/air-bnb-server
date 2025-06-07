@@ -51,7 +51,7 @@ class ListingCreateInput {
   @ApiProperty({
     required: true,
   })
-  @IsJSONValue()
+  // //@IsJSONValue()
   @Field(() => GraphQLJSON)
   locationData!: InputJsonValue;
 
@@ -67,28 +67,28 @@ class ListingCreateInput {
   @ApiProperty({
     required: true,
   })
-  @IsJSONValue()
+  
   @Field(() => GraphQLJSON)
   mapData!: InputJsonValue;
 
   @ApiProperty({
     required: true,
   })
-  @IsJSONValue()
+  //@IsJSONValue()
   @Field(() => GraphQLJSON)
   photos!: InputJsonValue;
 
   @ApiProperty({
     required: true,
   })
-  @IsJSONValue()
+  //@IsJSONValue()
   @Field(() => GraphQLJSON)
   placeAmeneties!: InputJsonValue;
 
   @ApiProperty({
     required: true,
   })
-  @IsJSONValue()
+  //@IsJSONValue()
   @Field(() => GraphQLJSON)
   placeSpace!: InputJsonValue;
 

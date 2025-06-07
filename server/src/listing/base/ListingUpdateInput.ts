@@ -57,7 +57,7 @@ class ListingUpdateInput {
   @ApiProperty({
     required: false,
   })
-  @IsJSONValue()
+  // @IsJSONValue()
   @IsOptional()
   @Field(() => GraphQLJSON, {
     nullable: true,
@@ -79,7 +79,7 @@ class ListingUpdateInput {
   @ApiProperty({
     required: false,
   })
-  @IsJSONValue()
+  // @IsJSONValue()
   @IsOptional()
   @Field(() => GraphQLJSON, {
     nullable: true,
@@ -89,7 +89,7 @@ class ListingUpdateInput {
   @ApiProperty({
     required: false,
   })
-  @IsJSONValue()
+  // @  IsJSONValue()
   @IsOptional()
   @Field(() => GraphQLJSON, {
     nullable: true,
@@ -99,7 +99,7 @@ class ListingUpdateInput {
   @ApiProperty({
     required: false,
   })
-  @IsJSONValue()
+  // @IsJSONValue()
   @IsOptional()
   @Field(() => GraphQLJSON, {
     nullable: true,
@@ -109,7 +109,7 @@ class ListingUpdateInput {
   @ApiProperty({
     required: false,
   })
-  @IsJSONValue()
+  // @IsJSONValue()
   @IsOptional()
   @Field(() => GraphQLJSON, {
     nullable: true,

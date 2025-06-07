@@ -496,4 +496,9 @@ export class ListingControllerBase {
       select: { id: true },
     });
   }
+  @common.Get("test-header")
+  async testHeader(@common.Headers("authorization") authHeader: string) {
+    console.log("Authorization header:", authHeader);
+    return { authorization: authHeader };
+  }
 }

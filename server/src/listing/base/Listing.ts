@@ -69,7 +69,7 @@ class Listing {
   @ApiProperty({
     required: true,
   })
-  @IsJSONValue()
+  // @IsJSONValue()
   @Field(() => GraphQLJSON)
   locationData!: JsonValue;
 
@@ -85,28 +85,28 @@ class Listing {
   @ApiProperty({
     required: true,
   })
-  @IsJSONValue()
+  // @IsJSONValue()
   @Field(() => GraphQLJSON)
   mapData!: JsonValue;
 
   @ApiProperty({
     required: true,
   })
-  @IsJSONValue()
+  // @IsJSONValue()
   @Field(() => GraphQLJSON)
   photos!: JsonValue;
 
   @ApiProperty({
     required: true,
   })
-  @IsJSONValue()
+  // @IsJSONValue()
   @Field(() => GraphQLJSON)
   placeAmeneties!: JsonValue;
 
   @ApiProperty({
     required: true,
   })
-  @IsJSONValue()
+  // @IsJSONValue()
   @Field(() => GraphQLJSON)
   placeSpace!: JsonValue;
 

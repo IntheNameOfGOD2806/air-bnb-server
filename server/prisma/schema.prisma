@@ -88,4 +88,6 @@ model Comment {
   blogId    String
   user      User     @relation("UserComments", fields: [userId], references: [id])
   userId    String
+  likes     Int      @default(0)
+  stars     Int      @default(0)
 }

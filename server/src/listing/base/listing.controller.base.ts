@@ -166,6 +166,7 @@ export class ListingControllerBase {
         placeSpace: true,
         placeType: true,
         price: true,
+        title:true,
         updatedAt: true,
       },
     });

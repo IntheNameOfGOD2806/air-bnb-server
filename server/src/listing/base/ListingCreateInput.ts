@@ -41,6 +41,15 @@ class ListingCreateInput {
 
   @ApiProperty({
     required: true,
+    type: String,
+  })
+  @IsString()
+  @MaxLength(1000)
+  @Field(() => String)
+  title!: string;
+
+  @ApiProperty({
+    required: true,
     type: () => UserWhereUniqueInput,
   })
   @ValidateNested()
@@ -67,6 +76,7 @@ class ListingCreateInput {
   @ApiProperty({
     required: true,
   })
+  
   
   @Field(() => GraphQLJSON)
   mapData!: InputJsonValue;

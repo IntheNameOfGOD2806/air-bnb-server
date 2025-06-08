@@ -37,12 +37,14 @@ model Listing {
   photos             Json
   placeAmeneties     Json
   placeSpace         Json
+  title              String
   placeType          String
   price              Float
   trips              Trip[]
   updatedAt          DateTime   @updatedAt
   wishlists          Wishlist[]
 }
+
 
 model Wishlist {
   createdAt DateTime @default(now())
@@ -91,3 +93,12 @@ model Comment {
   likes     Int      @default(0)
   stars     Int      @default(0)
 }
+
+// model Tour {
+//   createdAt DateTime @default(now())
+//   id        String   @id @default(cuid())
+//   listing   Listing  @relation(fields: [listingId], references: [id])
+//   listingId String
+//   tripinfo  Json
+//   updatedAt DateTime @updatedAt
+// }

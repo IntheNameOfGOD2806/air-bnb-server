@@ -27,6 +27,7 @@ export class ListingServiceBase {
   }
 
   async listings(args: Prisma.ListingFindManyArgs): Promise<PrismaListing[]> {
+    console.log('check 32  2424 24 42',args)
     return this.prisma.listing.findMany(args);
   }
   async listing(
@@ -35,6 +36,7 @@ export class ListingServiceBase {
     return this.prisma.listing.findUnique(args);
   }
   async createListing(args: Prisma.ListingCreateArgs): Promise<PrismaListing> {
+    console.log("args", args);
     return this.prisma.listing.create(args);
   }
   async updateListing(args: Prisma.ListingUpdateArgs): Promise<PrismaListing> {

@@ -32,6 +32,7 @@ import { TripWhereUniqueInput } from "../../trip/base/TripWhereUniqueInput";
 import { WishlistFindManyArgs } from "../../wishlist/base/WishlistFindManyArgs";
 import { Wishlist } from "../../wishlist/base/Wishlist";
 import { WishlistWhereUniqueInput } from "../../wishlist/base/WishlistWhereUniqueInput";
+import { title } from "process";
 
 @swagger.ApiBearerAuth()
 @common.UseGuards(defaultAuthGuard.DefaultAuthGuard, nestAccessControl.ACGuard)
@@ -54,6 +55,7 @@ export class ListingControllerBase {
   async createListing(
     @common.Body() data: ListingCreateInput
   ): Promise<Listing> {
+    console.log("data234234234", data);
     return await this.service.createListing({
       data: {
         ...data,
@@ -81,6 +83,7 @@ export class ListingControllerBase {
         placeSpace: true,
         placeType: true,
         price: true,
+        title:true,
         updatedAt: true,
       },
     });
@@ -121,6 +124,7 @@ export class ListingControllerBase {
         placeSpace: true,
         placeType: true,
         price: true,
+        title:true,
         updatedAt: true,
       },
     });

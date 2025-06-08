@@ -36,7 +36,7 @@ class ListingFindManyArgs {
   @ValidateNested({ each: true })
   @Field(() => [ListingOrderByInput], { nullable: true })
   @Type(() => ListingOrderByInput)
-  orderBy?: Array<ListingOrderByInput>;
+  orderBy?: Array<ListingOrderByInput> | ListingOrderByInput;
 
   @ApiProperty({
     required: false,

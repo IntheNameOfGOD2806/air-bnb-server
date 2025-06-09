@@ -42,32 +42,14 @@ export class AuthService {
     }
     return null;
   }
-  async validateUserReg(
-    username: string,
-    email: string,
-    password: string
-  ): Promise<UserInfo | null> {
+  async validateUserReg(username: string, email: string): Promise<boolean> {
     const user = await this.userService.findFirstUser({
       where: {
         OR: [{ username }, { email }],
       },
     });
-    console.log(1231331);
-    if (user && (await this.passwordService.compare(password, user.password))) {
-      const { id, roles, email, firstName, lastName, userImage } = user;
-      const roleList = roles as string[];
-      return {
-        id,
-        username: user.username, // important: take from `user`, not input
-        roles: roleList,
-        email,
-        firstName,
-        lastName,
-        userImage,
-      };
-    }
 
-    return null;
+    return !!user; // true nếu đã tồn tại user
   }
 
   async login(credentials: Credentials): Promise<UserInfo | any> {

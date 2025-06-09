@@ -91,7 +91,7 @@ export class AuthService {
   }
   async register(credentials: SignUpCredentials): Promise<UserInfo | any> {
     const { email, username, password, firstName, lastName } = credentials;
-    const user = await this.validateUserReg(username, email, password);
+    const user = await this.validateUserReg(username, email);
     if (user) {
       return {
         message: "người dùng với email hoặc username tương tự đã tồn tại",

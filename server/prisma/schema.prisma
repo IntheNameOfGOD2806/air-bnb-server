@@ -8,21 +8,22 @@ generator client {
 }
 
 model User {
-  createdAt DateTime   @default(now())
-  email     String?    @unique
-  firstName String?
-  id        String     @id @default(cuid())
-  lastName  String?
-  listings  Listing[]
-  password  String
-  roles     Json
-  trips     Trip[]
-  updatedAt DateTime   @updatedAt
-  username  String     @unique
-  wishlists Wishlist[]
-  userImage String?
-  blogs     Blog[]     @relation("UserBlogs")
-  comments  Comment[]  @relation("UserComments")
+  createdAt   DateTime   @default(now())
+  email       String?    @unique
+  firstName   String?
+  id          String     @id @default(cuid())
+  lastName    String?
+  listings    Listing[]
+  password    String
+  roles       Json
+  trips       Trip[]
+  updatedAt   DateTime   @updatedAt
+  username    String     @unique
+  wishlists   Wishlist[]
+  userImage   String?
+  blogs       Blog[]     @relation("UserBlogs")
+  comments    Comment[]  @relation("UserComments")
+  cometChatId String?
 }
 
 model Listing {
@@ -43,8 +44,8 @@ model Listing {
   trips              Trip[]
   updatedAt          DateTime   @updatedAt
   wishlists          Wishlist[]
+  isTour             Boolean    @default(false)
 }
-
 
 model Wishlist {
   createdAt DateTime @default(now())
@@ -65,6 +66,8 @@ model Trip {
   updatedAt DateTime @updatedAt
   user      User     @relation(fields: [userId], references: [id])
   userId    String
+  status    String   @default("pending")
+  isTour    Boolean  @default(false)    
 }
 
 model Blog {
@@ -97,8 +100,8 @@ model Comment {
 // model Tour {
 //   createdAt DateTime @default(now())
 //   id        String   @id @default(cuid())
-//   listing   Listing  @relation(fields: [listingId], references: [id])
-//   listingId String
-//   tripinfo  Json
+//   tourCreatedBy User @relation(fields: [tourCreatedById], references: [id])
+//   tourCreatedById String
+//   tourinfo Json
 //   updatedAt DateTime @updatedAt
 // }

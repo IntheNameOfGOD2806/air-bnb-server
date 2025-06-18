@@ -35,7 +35,7 @@ class ListingCreateInput {
     type: String,
   })
   @IsString()
-  @MaxLength(1000)
+  @MaxLength(100000)
   @Field(() => String)
   description!: string;
 
@@ -144,6 +144,18 @@ class ListingCreateInput {
     nullable: true,
   })
   wishlists?: WishlistCreateNestedManyWithoutListingsInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => Boolean,
+  })
+  // @ValidateNested()
+  @Type(() => Boolean)
+  @IsOptional()
+  @Field(() => Boolean, {
+    nullable: true,
+  })
+  isTour?: boolean;
 }
 
 export { ListingCreateInput as ListingCreateInput };

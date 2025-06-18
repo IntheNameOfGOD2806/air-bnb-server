@@ -154,6 +154,15 @@ class Listing {
   @Type(() => Wishlist)
   @IsOptional()
   wishlists?: Array<Wishlist>;
+
+  @ApiProperty({
+    required: false,
+    type: () => Boolean,
+  })
+  @ValidateNested()
+  @Type(() => Boolean)
+  @IsOptional()
+  isTour?: boolean;
 }
 
 export { Listing as Listing };

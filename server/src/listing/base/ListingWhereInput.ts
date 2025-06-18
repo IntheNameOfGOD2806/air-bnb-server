@@ -19,6 +19,7 @@ import { JsonFilter } from "../../util/JsonFilter";
 import { FloatFilter } from "../../util/FloatFilter";
 import { TripListRelationFilter } from "../../trip/base/TripListRelationFilter";
 import { WishlistListRelationFilter } from "../../wishlist/base/WishlistListRelationFilter";
+import { BooleanFilter } from "src/util/BooleanFilter";
 
 @InputType()
 class ListingWhereInput {
@@ -167,6 +168,15 @@ class ListingWhereInput {
     nullable: true,
   })
   wishlists?: WishlistListRelationFilter;
+
+  @ApiProperty({
+    required: false,
+    type: BooleanFilter,
+  })
+  @IsOptional()
+  @Field(() => BooleanFilter, { nullable: true })
+  @Type(() => BooleanFilter)
+  isTour?: BooleanFilter;
 }
 
 export { ListingWhereInput as ListingWhereInput };

@@ -83,8 +83,9 @@ export class ListingControllerBase {
         placeSpace: true,
         placeType: true,
         price: true,
-        title:true,
+        title: true,
         updatedAt: true,
+        isTour: true,
       },
     });
   }
@@ -103,6 +104,8 @@ export class ListingControllerBase {
   })
   async listings(@common.Req() request: Request): Promise<Listing[]> {
     const args = plainToClass(ListingFindManyArgs, request.query);
+    console.log("argsdddd",  request.query);
+    
     return this.service.listings({
       ...args,
       select: {
@@ -124,8 +127,9 @@ export class ListingControllerBase {
         placeSpace: true,
         placeType: true,
         price: true,
-        title:true,
+        title: true,
         updatedAt: true,
+        isTour: true,
       },
     });
   }
@@ -167,7 +171,7 @@ export class ListingControllerBase {
         placeSpace: true,
         placeType: true,
         price: true,
-        title:true,
+        title: true,
         updatedAt: true,
       },
     });
@@ -320,7 +324,6 @@ export class ListingControllerBase {
             firstName: true,
             lastName: true,
             email: true,
-            
           },
         },
       },
@@ -389,6 +392,10 @@ export class ListingControllerBase {
   ): Promise<void> {
     const data = {
       trips: {
+        //body example: body:{
+        // {id: string}
+        // ...
+        //}
         disconnect: body,
       },
     };
@@ -423,9 +430,7 @@ export class ListingControllerBase {
             id: true,
           },
         },
-
         updatedAt: true,
-
         user: {
           select: {
             id: true,

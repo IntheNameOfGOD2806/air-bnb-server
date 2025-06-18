@@ -57,6 +57,7 @@ class ListingFindManyArgs {
   @Field(() => Number, { nullable: true })
   @Type(() => Number)
   take?: number;
+  
 }
 
 export { ListingFindManyArgs as ListingFindManyArgs };

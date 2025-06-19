@@ -324,6 +324,7 @@ export class ListingControllerBase {
             firstName: true,
             lastName: true,
             email: true,
+            username: true,
           },
         },
       },

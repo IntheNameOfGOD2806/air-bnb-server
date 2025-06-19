@@ -104,6 +104,7 @@ export class TripControllerBase {
           select: {
             id: true,
             title: true,
+            listingCreatedBy: true,
           },
         },
 
@@ -113,6 +114,9 @@ export class TripControllerBase {
         user: {
           select: {
             id: true,
+            email: true,
+            firstName: true,
+            lastName: true,
           },
         },
       },
@@ -143,6 +147,7 @@ export class TripControllerBase {
         listing: {
           select: {
             id: true,
+            listingCreatedBy: true,
           },
         },
 

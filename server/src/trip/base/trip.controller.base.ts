@@ -116,6 +116,7 @@ export class TripControllerBase {
             id: true,
             email: true,
             firstName: true,
+            username: true,
             lastName: true,
           },
         },

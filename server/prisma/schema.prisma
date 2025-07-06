@@ -24,6 +24,7 @@ model User {
   blogs       Blog[]     @relation("UserBlogs")
   comments    Comment[]  @relation("UserComments")
   cometChatId String?
+  phone       String?    @default("")
 }
 
 model Listing {
@@ -45,6 +46,22 @@ model Listing {
   updatedAt          DateTime   @updatedAt
   wishlists          Wishlist[]
   isTour             Boolean    @default(false)
+  isVehicle          Boolean    @default(false)
+}
+model Vehicle {
+  createdAt          DateTime   @default(now())
+  description        String
+  id                 String     @id @default(cuid())
+  locationData       Json
+  locationType       String
+  mapData            Json
+  photos             Json
+  placeAmeneties     Json
+  placeSpace         Json
+  title              String
+  placeType          String
+  price              Float
+  updatedAt          DateTime   @updatedAt
 }
 
 model Wishlist {
@@ -67,7 +84,7 @@ model Trip {
   user      User     @relation(fields: [userId], references: [id])
   userId    String
   status    String   @default("pending")
-  isTour    Boolean  @default(false)    
+  isTour    Boolean  @default(false)
 }
 
 model Blog {
@@ -95,7 +112,7 @@ model Comment {
   userId    String
   likes     Int      @default(0)
   stars     Int      @default(0)
-}
+} 
 
 // model Tour {
 //   createdAt DateTime @default(now())

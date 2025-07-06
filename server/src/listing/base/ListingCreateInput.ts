@@ -156,6 +156,18 @@ class ListingCreateInput {
     nullable: true,
   })
   isTour?: boolean;
+
+  @ApiProperty({
+    required: false,
+    type: () => Boolean,
+  })
+  // @ValidateNested()
+  @Type(() => Boolean)
+  @IsOptional()
+  @Field(() => Boolean, {
+    nullable: true,
+  })
+  isVehicle?: boolean;
 }
 
 export { ListingCreateInput as ListingCreateInput };

@@ -86,6 +86,7 @@ export class ListingControllerBase {
         title: true,
         updatedAt: true,
         isTour: true,
+        isVehicle: true,
       },
     });
   }
@@ -130,6 +131,7 @@ export class ListingControllerBase {
         title: true,
         updatedAt: true,
         isTour: true,
+        isVehicle: true,
       },
     });
   }

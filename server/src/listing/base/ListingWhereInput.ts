@@ -177,6 +177,15 @@ class ListingWhereInput {
   @Field(() => BooleanFilter, { nullable: true })
   @Type(() => BooleanFilter)
   isTour?: BooleanFilter;
+
+  @ApiProperty({
+    required: false,
+    type: BooleanFilter,
+  })
+  @IsOptional()
+  @Field(() => BooleanFilter, { nullable: true })
+  @Type(() => BooleanFilter)
+  isVehicle?: BooleanFilter;
 }
 
 export { ListingWhereInput as ListingWhereInput };

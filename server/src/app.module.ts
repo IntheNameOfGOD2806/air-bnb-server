@@ -15,9 +15,12 @@ import { AuthModule } from "./auth/auth.module";
 import {AppService} from "./app.service";
 import { ChatModule } from './chat/chat.module';
 
+import { PaymentModule } from './payment/payment.module';
+
 @Module({ 
   controllers: [],
   imports: [
+    PaymentModule,
     ChatModule,
     ConfigModule.forRoot({envFilePath: '.env', isGlobal: true }),
     MailerModule.forRoot({
@@ -44,6 +47,8 @@ import { ChatModule } from './chat/chat.module';
     ServeStaticModule.forRootAsync({
       useClass: ServeStaticOptionsService,
     }),
+    PaymentModule,
+    // ZalopayModule,
   ],
   providers: [AppService],
 })

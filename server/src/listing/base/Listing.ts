@@ -163,6 +163,15 @@ class Listing {
   @Type(() => Boolean)
   @IsOptional()
   isTour?: boolean;
+
+  @ApiProperty({
+    required: false,
+    type: () => Boolean,
+  })
+  @ValidateNested()
+  @Type(() => Boolean)
+  @IsOptional()
+  isVehicle?: boolean;
 }
 
 export { Listing as Listing };

@@ -1,120 +1,120 @@
 [
   {
-    "role": "user",
+    "role": "User",
     "resource": "User",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "user",
+    "role": "User",
     "resource": "User",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "user",
+    "role": "User",
     "resource": "User",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "user",
+    "role": "User",
     "resource": "User",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "user",
+    "role": "User",
     "resource": "User",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "user",
+    "role": "User",
     "resource": "Listing",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "user",
+    "role": "User",
     "resource": "Listing",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "user",
+    "role": "User",
     "resource": "Listing",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "user",
+    "role": "User",
     "resource": "Listing",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "user",
+    "role": "User",
     "resource": "Listing",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "user",
+    "role": "User",
     "resource": "Wishlist",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "user",
+    "role": "User",
     "resource": "Wishlist",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "user",
+    "role": "User",
     "resource": "Wishlist",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "user",
+    "role": "User",
     "resource": "Wishlist",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "user",
+    "role": "User",
     "resource": "Wishlist",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "user",
+    "role": "User",
     "resource": "Trip",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "user",
+    "role": "User",
     "resource": "Trip",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "user",
+    "role": "User",
     "resource": "Trip",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "user",
+    "role": "User",
     "resource": "Trip",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "user",
+    "role": "User",
     "resource": "Trip",
     "action": "read:any",
     "attributes": "*"

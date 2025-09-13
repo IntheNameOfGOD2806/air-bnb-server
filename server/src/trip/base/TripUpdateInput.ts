@@ -36,7 +36,7 @@ class TripUpdateInput {
   @ApiProperty({
     required: false,
   })
-  @IsJSONValue()
+  // @IsJSONValue()
   @IsOptional()
   @Field(() => GraphQLJSON, {
     nullable: true,

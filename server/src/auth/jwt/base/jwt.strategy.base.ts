@@ -21,9 +21,9 @@ export class JwtStrategyBase
   }
 
   async validate(payload: UserInfo): Promise<UserInfo> {
-    const { username } = payload;
+    const { email } = payload;
     const user = await this.userService.user({
-      where: { username },
+      where: { email: email! },
     });
     if (!user) {
       throw new UnauthorizedException();

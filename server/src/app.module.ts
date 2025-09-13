@@ -9,15 +9,31 @@ import { SecretsManagerModule } from "./providers/secrets/secretsManager.module"
 import { ServeStaticModule } from "@nestjs/serve-static";
 import { ServeStaticOptionsService } from "./serveStaticOptions.service";
 import { ConfigModule, ConfigService } from "@nestjs/config";
-import { GraphQLModule } from "@nestjs/graphql";
-import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
-
+import { MailerModule } from "@nestjs-modules/mailer";
 import { ACLModule } from "./auth/acl.module";
 import { AuthModule } from "./auth/auth.module";
+import {AppService} from "./app.service";
+import { ChatModule } from './chat/chat.module';
 
-@Module({
+import { PaymentModule } from './payment/payment.module';
+
+@Module({ 
   controllers: [],
   imports: [
+    PaymentModule,
+    ChatModule,
+    ConfigModule.forRoot({envFilePath: '.env', isGlobal: true }),
+    MailerModule.forRoot({
+      transport: {
+        host: "sandbox.smtp.mailtrap.io",
+        secure: true,
+        auth: {
+          user: "339b87c13ba246",
+          pass: "fd75eb9b27a0de"
+        },
+        port: 2525,
+      },
+    }),
     ACLModule,
     AuthModule,
     UserModule,
@@ -31,22 +47,9 @@ import { AuthModule } from "./auth/auth.module";
     ServeStaticModule.forRootAsync({
       useClass: ServeStaticOptionsService,
     }),
-    GraphQLModule.forRootAsync<ApolloDriverConfig>({
-      driver: ApolloDriver,
-      useFactory: (configService: ConfigService) => {
-        const playground = configService.get("GRAPHQL_PLAYGROUND");
-        const introspection = configService.get("GRAPHQL_INTROSPECTION");
-        return {
-          autoSchemaFile: "schema.graphql",
-          sortSchema: true,
-          playground,
-          introspection: playground || introspection,
-        };
-      },
-      inject: [ConfigService],
-      imports: [ConfigModule],
-    }),
+    PaymentModule,
+    // ZalopayModule,
   ],
-  providers: [],
+  providers: [AppService],
 })
 export class AppModule {}

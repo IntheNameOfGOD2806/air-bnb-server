@@ -69,7 +69,7 @@ class Listing {
   @ApiProperty({
     required: true,
   })
-  @IsJSONValue()
+  // @IsJSONValue()
   @Field(() => GraphQLJSON)
   locationData!: JsonValue;
 
@@ -85,28 +85,28 @@ class Listing {
   @ApiProperty({
     required: true,
   })
-  @IsJSONValue()
+  // @IsJSONValue()
   @Field(() => GraphQLJSON)
   mapData!: JsonValue;
 
   @ApiProperty({
     required: true,
   })
-  @IsJSONValue()
+  // @IsJSONValue()
   @Field(() => GraphQLJSON)
   photos!: JsonValue;
 
   @ApiProperty({
     required: true,
   })
-  @IsJSONValue()
+  // @IsJSONValue()
   @Field(() => GraphQLJSON)
   placeAmeneties!: JsonValue;
 
   @ApiProperty({
     required: true,
   })
-  @IsJSONValue()
+  // @IsJSONValue()
   @Field(() => GraphQLJSON)
   placeSpace!: JsonValue;
 
@@ -154,6 +154,24 @@ class Listing {
   @Type(() => Wishlist)
   @IsOptional()
   wishlists?: Array<Wishlist>;
+
+  @ApiProperty({
+    required: false,
+    type: () => Boolean,
+  })
+  @ValidateNested()
+  @Type(() => Boolean)
+  @IsOptional()
+  isTour?: boolean;
+
+  @ApiProperty({
+    required: false,
+    type: () => Boolean,
+  })
+  @ValidateNested()
+  @Type(() => Boolean)
+  @IsOptional()
+  isVehicle?: boolean;
 }
 
 export { Listing as Listing };

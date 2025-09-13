@@ -91,7 +91,7 @@ class User {
   @ApiProperty({
     required: true,
   })
-  @IsJSONValue()
+  // @IsJSONValue()
   @Field(() => GraphQLJSON)
   roles!: JsonValue;
 
@@ -128,6 +128,17 @@ class User {
   @Type(() => Wishlist)
   @IsOptional()
   wishlists?: Array<Wishlist>;
+  //userImage
+  @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  userImage?: string | null;
 }
 
 export { User as User };

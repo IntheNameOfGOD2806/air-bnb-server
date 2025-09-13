@@ -35,9 +35,18 @@ class ListingCreateInput {
     type: String,
   })
   @IsString()
-  @MaxLength(1000)
+  @MaxLength(100000)
   @Field(() => String)
   description!: string;
+
+  @ApiProperty({
+    required: true,
+    type: String,
+  })
+  @IsString()
+  @MaxLength(1000)
+  @Field(() => String)
+  title!: string;
 
   @ApiProperty({
     required: true,
@@ -51,7 +60,7 @@ class ListingCreateInput {
   @ApiProperty({
     required: true,
   })
-  @IsJSONValue()
+  // //@IsJSONValue()
   @Field(() => GraphQLJSON)
   locationData!: InputJsonValue;
 
@@ -67,28 +76,29 @@ class ListingCreateInput {
   @ApiProperty({
     required: true,
   })
-  @IsJSONValue()
+  
+  
   @Field(() => GraphQLJSON)
   mapData!: InputJsonValue;
 
   @ApiProperty({
     required: true,
   })
-  @IsJSONValue()
+  //@IsJSONValue()
   @Field(() => GraphQLJSON)
   photos!: InputJsonValue;
 
   @ApiProperty({
     required: true,
   })
-  @IsJSONValue()
+  //@IsJSONValue()
   @Field(() => GraphQLJSON)
   placeAmeneties!: InputJsonValue;
 
   @ApiProperty({
     required: true,
   })
-  @IsJSONValue()
+  //@IsJSONValue()
   @Field(() => GraphQLJSON)
   placeSpace!: InputJsonValue;
 
@@ -134,6 +144,30 @@ class ListingCreateInput {
     nullable: true,
   })
   wishlists?: WishlistCreateNestedManyWithoutListingsInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => Boolean,
+  })
+  // @ValidateNested()
+  @Type(() => Boolean)
+  @IsOptional()
+  @Field(() => Boolean, {
+    nullable: true,
+  })
+  isTour?: boolean;
+
+  @ApiProperty({
+    required: false,
+    type: () => Boolean,
+  })
+  // @ValidateNested()
+  @Type(() => Boolean)
+  @IsOptional()
+  @Field(() => Boolean, {
+    nullable: true,
+  })
+  isVehicle?: boolean;
 }
 
 export { ListingCreateInput as ListingCreateInput };

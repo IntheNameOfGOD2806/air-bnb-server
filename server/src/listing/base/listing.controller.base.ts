@@ -32,6 +32,7 @@ import { TripWhereUniqueInput } from "../../trip/base/TripWhereUniqueInput";
 import { WishlistFindManyArgs } from "../../wishlist/base/WishlistFindManyArgs";
 import { Wishlist } from "../../wishlist/base/Wishlist";
 import { WishlistWhereUniqueInput } from "../../wishlist/base/WishlistWhereUniqueInput";
+import { title } from "process";
 
 @swagger.ApiBearerAuth()
 @common.UseGuards(defaultAuthGuard.DefaultAuthGuard, nestAccessControl.ACGuard)
@@ -54,6 +55,7 @@ export class ListingControllerBase {
   async createListing(
     @common.Body() data: ListingCreateInput
   ): Promise<Listing> {
+    console.log("data234234234", data);
     return await this.service.createListing({
       data: {
         ...data,
@@ -81,7 +83,10 @@ export class ListingControllerBase {
         placeSpace: true,
         placeType: true,
         price: true,
+        title: true,
         updatedAt: true,
+        isTour: true,
+        isVehicle: true,
       },
     });
   }
@@ -100,6 +105,8 @@ export class ListingControllerBase {
   })
   async listings(@common.Req() request: Request): Promise<Listing[]> {
     const args = plainToClass(ListingFindManyArgs, request.query);
+    console.log("argsdddd",  request.query);
+    
     return this.service.listings({
       ...args,
       select: {
@@ -121,7 +128,10 @@ export class ListingControllerBase {
         placeSpace: true,
         placeType: true,
         price: true,
+        title: true,
         updatedAt: true,
+        isTour: true,
+        isVehicle: true,
       },
     });
   }
@@ -151,9 +161,10 @@ export class ListingControllerBase {
         listingCreatedBy: {
           select: {
             id: true,
+            firstName: true,
+            lastName: true,
           },
         },
-
         locationData: true,
         locationType: true,
         mapData: true,
@@ -162,6 +173,7 @@ export class ListingControllerBase {
         placeSpace: true,
         placeType: true,
         price: true,
+        title: true,
         updatedAt: true,
       },
     });
@@ -311,6 +323,10 @@ export class ListingControllerBase {
         user: {
           select: {
             id: true,
+            firstName: true,
+            lastName: true,
+            email: true,
+            username: true,
           },
         },
       },
@@ -379,6 +395,10 @@ export class ListingControllerBase {
   ): Promise<void> {
     const data = {
       trips: {
+        //body example: body:{
+        // {id: string}
+        // ...
+        //}
         disconnect: body,
       },
     };
@@ -413,9 +433,7 @@ export class ListingControllerBase {
             id: true,
           },
         },
-
         updatedAt: true,
-
         user: {
           select: {
             id: true,
@@ -495,5 +513,10 @@ export class ListingControllerBase {
       data,
       select: { id: true },
     });
+  }
+  @common.Get("test-header")
+  async testHeader(@common.Headers("authorization") authHeader: string) {
+    console.log("Authorization header:", authHeader);
+    return { authorization: authHeader };
   }
 }
